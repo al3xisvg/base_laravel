@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
+    <title>Zinout Culture</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
     
     <div class="container mx-auto">
       <form class="card w-96 bg-base-100 shadow-xl mx-auto p-10 gap-4">
-        <img class="mx-auto" src="favicon.png" height="100" width="150" />
+        <img class="mx-auto" src="{{ asset('images/logos/logo.png') }}" height="100" width="150" />
 
         <div class="form-control w-full max-w-xs"> 
           <span class="px-1 text-sm text-gray-600">Email:</span>

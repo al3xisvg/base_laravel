@@ -18,7 +18,7 @@
         <div class="navbar-start">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
             <div class="w-10 rounded-full">
-              <img src="{{ asset('favicon.png') }}" />
+              <img src="{{ asset('images/logos/logo.png') }}" />
             </div>
           </label>
         </div>
