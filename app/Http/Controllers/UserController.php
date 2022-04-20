@@ -8,8 +8,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller {
   public function list(Request $request) {
-    $skip = isset($request->skip) ? $request->skip : 0;
-    $limit = isset($request->limit) ? $request->limit : 10;
+    $page = isset($request->page) ? $request->page : 1;
+    $perPage = isset($request->perPage) ? $request->perPage : 10;
+
+    $skip = ($page - 1) * $perPage;
+    $limit = $perPage;
     $orderBy = $request->orderBy;
     $sort = isset($request->sort) ? $request->sort : 'asc';
     $fields = isset($request->fields)
@@ -18,6 +21,7 @@ class UserController extends Controller {
         : []
       : [];
 
+    $total = Wp_user::count();
     $users = [];
     if (isset($orderBy)) {
       if (count($fields) > 0) {
@@ -32,7 +36,16 @@ class UserController extends Controller {
         $users = Wp_user::all()->skip($skip)->limit($limit)->get();
       }
     }
-    return $users;
+
+    $response = array(
+      "total" => $total,
+      "page" => $page,
+      "perPage" => $perPage,
+      "hasPreviousPage" => $page > 1,
+      "hasNextPage" => $total > $page * $perPage,
+      "data" => $users
+    );
+    return $response;
   }
 
   public function obtain($id) {
