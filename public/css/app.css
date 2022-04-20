@@ -2779,12 +2779,36 @@ body[dir="rtl"] .checkbox:checked,
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+@font-face {
+  font-family: 'Objective';
+  src: local('Objective'), url(/fonts/Objective-Regular.otf?47cc4b71e1fc29a451d915c880c6bf54) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objective';
+  src: local('Objective'), url(/fonts/Objective-Medium.otf?152190ed89a051cd9584b8ed7eeeb0d4) format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Objective';
+  src: local('Objective'), url(/fonts/Objective-Bold.otf?42e3a0d2f71b49e99c32ea2a8f00e8aa) format('truetype');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Objective';
+  src: local('Objective'), url(/fonts/Objective-Black.otf?12c3221a24061c6871d0fbe339d9b3be) format('truetype');
+  font-weight: bold;
+}
+
 html, body {
   height: 100%;
 }
 
 body {
   background-color: #ededed;
+  /* font-family: Objective !important;*/
 }
 
 .focus\:border-gray-600:focus {
@@ -2827,3 +2851,4 @@ body {
     display: none;
   }
 }
+
