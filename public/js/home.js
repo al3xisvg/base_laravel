@@ -30554,6 +30554,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 $(function () {
+  var table = $('#tableUsers tbody');
   listUsers();
 
   function listUsers() {
@@ -30563,11 +30564,27 @@ $(function () {
       perPage: 10,
       orderBy: 'display_name',
       sort: 'asc',
-      fields: ['ID', 'user_email', 'display_name']
+      fields: ['ID', 'user_login', 'display_name', 'user_email', 'user_registered', 'user_status']
     };
     axios.post(url, body).then(function (res) {
-      console.log('--res--');
-      console.log(res);
+      if (res.data) {
+        var _data$data;
+
+        var data = res.data;
+
+        if ((_data$data = data.data) !== null && _data$data !== void 0 && _data$data.length) {
+          var items = data.data;
+          var strHtml = '';
+          items.forEach(function (item) {
+            strHtml += "\n                <tr>\n                  <td>".concat(item.user_login, "</td>\n                  <td>").concat(item.display_name, "</td>\n                  <td>").concat(item.user_email, "</td>\n                  <td>").concat(item.user_registered, "</td>\n                  <td>").concat(item.user_status, "</td>\n                </tr>\n              ");
+          });
+          table.append(strHtml);
+        } else {
+          console.log('---array vacio--');
+        }
+      } else {
+        console.log('---no hay data---');
+      }
     })["catch"](function (err) {
       console.log('--er--');
       console.log(err);

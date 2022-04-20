@@ -2760,6 +2760,9 @@ body[dir="rtl"] .checkbox:checked,
 .gap-2 {
   gap: 0.5rem;
 }
+.overflow-x-auto {
+  overflow-x: auto;
+}
 .rounded-full {
   border-radius: 9999px;
 }
@@ -2803,6 +2806,10 @@ body[dir="rtl"] .checkbox:checked,
 }
 .text-xl {
   font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-lg {
+  font-size: 1.125rem;
   line-height: 1.75rem;
 }
 .normal-case {
