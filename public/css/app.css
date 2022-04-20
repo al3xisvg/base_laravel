@@ -2903,6 +2903,14 @@ body {
     display: none;
   }
 
+  .md\:w-72 {
+    width: 18rem;
+  }
+
+  .md\:w-64 {
+    width: 16rem;
+  }
+
   .md\:pr-3 {
     padding-right: 0.75rem;
   }
