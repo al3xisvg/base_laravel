@@ -32,13 +32,15 @@ $(() => {
             var items = data.data;
             var strHtml = '';
             items.forEach((item) => {
+              var color = item.user_status === 0 ? 'accent' : 'primary';
+              var status = item.user_status === 0 ? 'Activo' : 'Inactivo';
               strHtml += `
-                <tr>
+                <tr class="hover cursor-pointer">
                   <td>${item.user_login}</td>
                   <td>${item.display_name}</td>
                   <td>${item.user_email}</td>
                   <td>${item.user_registered}</td>
-                  <td>${item.user_status}</td>
+                  <td><span class="badge badge-${color}">${status}</span></td>
                 </tr>
               `
             });

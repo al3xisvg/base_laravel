@@ -30576,7 +30576,9 @@ $(function () {
           var items = data.data;
           var strHtml = '';
           items.forEach(function (item) {
-            strHtml += "\n                <tr>\n                  <td>".concat(item.user_login, "</td>\n                  <td>").concat(item.display_name, "</td>\n                  <td>").concat(item.user_email, "</td>\n                  <td>").concat(item.user_registered, "</td>\n                  <td>").concat(item.user_status, "</td>\n                </tr>\n              ");
+            var color = item.user_status === 0 ? 'accent' : 'primary';
+            var status = item.user_status === 0 ? 'Activo' : 'Inactivo';
+            strHtml += "\n                <tr class=\"hover cursor-pointer\">\n                  <td>".concat(item.user_login, "</td>\n                  <td>").concat(item.display_name, "</td>\n                  <td>").concat(item.user_email, "</td>\n                  <td>").concat(item.user_registered, "</td>\n                  <td><span class=\"badge badge-").concat(color, "\">").concat(status, "</span></td>\n                </tr>\n              ");
           });
           table.append(strHtml);
         } else {
