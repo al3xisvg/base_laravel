@@ -31,6 +31,7 @@
             class="input input-bordered w-full max-w-xs shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
           >
         </div>
+
         <div class="form-control w-full max-w-xs">
           <span class="px-1 text-sm text-gray-600">Contraseña:</span>
           <div class="relative">
@@ -62,6 +63,21 @@
             </div>
           </div>
         </div>
+
+        <div class="form-control">
+          <label class="label cursor-pointer justify-start gap-2">
+            <input type="checkbox" checked="checked" class="checkbox">
+            <span class="px-1 text-sm text-gray-600">Recuérdame</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn">
+          Iniciar Sesión
+        </button>
+
+        <button class="btn btn-link btn-sm no-underline">
+          Olvidé mi contraseña
+        </button>
       </form>
     </div>
 

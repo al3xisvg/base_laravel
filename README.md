@@ -20,3 +20,22 @@
 ```
 >> php artisan serve --host 0.0.0.0 --port 8000
 ```
+
+### Notes
+
+-   [x] Jquery was installed manually
+
+```
+Adding in package.json:
+  >> yarn add jquery
+
+In resources/js/bootstrap.js, at bottom file was inserted following text:
+
+  try {
+    window.$ = window.jQuery = require('jquery');
+
+    require('./bootstrap');
+  } catch (e) {
+
+  }
+```
