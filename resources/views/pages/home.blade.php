@@ -19,3 +19,7 @@
     </tbody>
   </table>
 @endsection
+
+@section('scripts')
+  <script src="{{ asset('js/home.js') }}" type="text/javascript" defer></script>
+@endsection
