@@ -2699,6 +2699,16 @@ body[dir="rtl"] .checkbox:checked,
 .w-7 {
   width: 1.75rem;
 }
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
 .max-w-xs {
   max-width: 20rem;
 }
@@ -2768,6 +2778,12 @@ body[dir="rtl"] .checkbox:checked,
 }
 .pt-2 {
   padding-top: 0.5rem;
+}
+.pr-2 {
+  padding-right: 0.5rem;
+}
+.pr-4 {
+  padding-right: 1rem;
 }
 .text-sm {
   font-size: 0.875rem;
@@ -2885,6 +2901,10 @@ body {
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:pr-3 {
+    padding-right: 0.75rem;
   }
 }
 
