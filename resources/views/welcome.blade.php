@@ -20,8 +20,10 @@
 
   <body class="flex flex-col h-screen justify-center">
     
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto">
       <form class="card w-96 bg-base-100 shadow-xl mx-auto p-10 gap-4">
+        <img class="mx-auto" src="favicon.png" height="100" width="150" />
+
         <div class="form-control w-full max-w-xs"> 
           <span class="px-1 text-sm text-gray-600">Email:</span>
           <input
