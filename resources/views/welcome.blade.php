@@ -74,7 +74,7 @@
         </div>
 
         <button type="submit" class="btn">
-          <a href="/home">Iniciar Sesión</a>
+          <a href="{{ route('home') }}">Iniciar Sesión</a>
         </button>
 
         <button class="btn btn-link btn-sm no-underline">
