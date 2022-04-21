@@ -30557,8 +30557,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"); // $(() => {
-
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 var _table = $('#table tbody');
 
@@ -30599,7 +30598,8 @@ function listUsers(page) {
       console.log('---no hay data---');
     }
   })["catch"](function (err) {
-    loading.hide();
+    _loading.hide();
+
     console.log('--er--');
     console.log(err);
   });
@@ -30610,7 +30610,7 @@ function fillTable(table, data) {
   data.forEach(function (item) {
     var color = item.user_status === 0 ? 'accent' : 'primary';
     var status = item.user_status === 0 ? 'Activo' : 'Inactivo';
-    rows += "\n        <tr class=\"hover cursor-pointer\">\n          <td>".concat(item.user_login, "</td>\n          <td>").concat(item.display_name, "</td>\n          <td>").concat(item.user_email, "</td>\n          <td>").concat(item.user_registered, "</td>\n          <td><span class=\"badge badge-").concat(color, "\">").concat(status, "</span></td>\n        </tr>\n      ");
+    rows += "\n      <tr class=\"hover cursor-pointer\">\n        <td>".concat(item.user_login, "</td>\n        <td>").concat(item.display_name, "</td>\n        <td>").concat(item.user_email, "</td>\n        <td>").concat(item.user_registered, "</td>\n        <td><span class=\"badge badge-").concat(color, "\">").concat(status, "</span></td>\n      </tr>\n    ");
   });
   table.append(rows);
 }
@@ -30621,24 +30621,11 @@ function fillPaginate(paginate, pagination) {
 
   for (var i = 0; i < pages; i++) {
     var active = i + 1 === pagination.page ? 'btn-active' : '';
-    btns += "<button id=\"page-".concat(i + 1, "\" class=\"btn ").concat(active, "\" onclick=\"listUsers(5)\">").concat(i + 1, "</button>");
+    btns += "<button id=\"page".concat(i + 1, "\" class=\"btn ").concat(active, "\">").concat(i + 1, "</button>");
   }
 
   paginate.html(btns);
 }
-/*$('#tablePagination button[id^="page-"]').each(() => {
-  console.log('----asdas--');
-  console.log(this.id);
-});*/
-
-
-$('#page-1').on('click', function () {
-  console.log('--asdads--');
-}); // });
-
-/*$('#page').on('click', () => {
-  console.log('--asdasdas-')
-});*/
 })();
 
 /******/ })()

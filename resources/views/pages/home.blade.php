@@ -30,10 +30,9 @@
       </svg>
     </div>
 
-    <button id="page" class="btn" onclick="listUsers(5)">&lt;</button>
   </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
   <script src="{{ asset('js/home.js') }}" type="text/javascript"></script>
-@endsection
+@endpush
