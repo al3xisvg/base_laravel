@@ -2,11 +2,50 @@ require('./bootstrap');
 
 var axios = require('axios');
 
-var _table = $('#table tbody');
+var _table = $('#table');
 var _paginate = $('#tablePagination');
 var _loading = $('#loading');
 
-listUsers(1);
+// listUsers(1);
+list(1);
+
+function list(page) {
+  var url = '/api/v1/user/list';
+  var body = {
+    page,
+    perPage: 10,
+    orderBy: 'display_name',
+    sort: 'asc',
+    fields: [
+      'ID',
+      'user_login',
+      'display_name',
+      'user_email',
+      'user_registered',
+      'user_status'
+    ],
+  };
+
+  _table.DataTable({
+    processing: true,
+    serverSide: true,
+    responsive: true,
+    buttons: [],
+    ajax: {
+      url,
+      async: true,
+      dataSrc: (data) => data,
+    },
+    columns: [
+      { data: 'ID' },
+      { data: 'user_login' },
+      { data: 'display_name' },
+      { data: 'user_email' },
+      { data: 'user_registered' },
+      { data: 'user_status' },
+    ],
+  });
+}
 
 function listUsers(page) {
   _loading.show();

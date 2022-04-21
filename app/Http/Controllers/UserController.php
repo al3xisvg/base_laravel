@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller {
   public function list(Request $request) {
-    $page = isset($request->page) ? $request->page : 1;
+    /*if ($request->ajax()){
+      print($request);
+    } else {
+      print("asdasd");
+    }*/
+    Log::debug("asdasdsa");
+    /*$page = isset($request->page) ? $request->page : 1;
     $perPage = isset($request->perPage) ? $request->perPage : 10;
 
     $skip = ($page - 1) * $perPage;
@@ -44,6 +50,13 @@ class UserController extends Controller {
       "hasPreviousPage" => $page > 1,
       "hasNextPage" => $total > $page * $perPage,
       "data" => $users
+    );
+    */
+    $response = array(
+      "draw" => 1,
+      "recordsTotal" => 57,
+      "recordsFiltered" => 57,
+      "data" => []
     );
     return $response;
   }

@@ -13,7 +13,7 @@ Route::prefix('v1')->group(function() {
   
   Route::prefix('/user')->group(function() {
     Route::controller(UserController::class)->group(function () {
-      Route::post('/list', 'list');
+      Route::get('/list', 'list');
       Route::get('/obtain/{id}', 'obtain');
     });
   });
