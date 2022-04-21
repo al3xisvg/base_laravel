@@ -48,6 +48,11 @@ class UserController extends Controller {
     return $response;
   }
 
+  public function dtTable(Request $request) {
+    $data = Wp_user::all();
+    return datatables()->of($data)->make(true);
+  }
+
   public function obtain($id) {
     $user = Wp_user::find($id);
     return $user;

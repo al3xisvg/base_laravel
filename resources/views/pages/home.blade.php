@@ -9,6 +9,7 @@
     <table id="table" class="table w-full">
       <thead>
         <tr>
+          <th title="ID">ID</th>
           <th title="Username">Username</th>
           <th title="Fullname">Nombres y Apellidos</th>
           <th title="Email">Email</th>
@@ -19,9 +20,6 @@
       <tbody>
       </tbody>
     </table>
-
-    <div id="tablePagination" class="btn-group">
-    </div>
 
     <div id="loading" class="text-center mt-8">
       <svg role="status" class="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
