@@ -2,15 +2,18 @@ require('./bootstrap');
 
 var axios = require('axios');
 
-$(() => {
-  var table = $('#tableUsers tbody');
+// $(() => {
+  var _table = $('#table tbody');
+  var _paginate = $('#tablePagination');
+  var _loading = $('#loading');
 
-  listUsers();
+  listUsers(1);
 
-  function listUsers() {
+  function listUsers(page) {
+    _loading.show();
     var url = '/api/v1/user/list';
     var body = {
-      page: 1,
+      page,
       perPage: 10,
       orderBy: 'display_name',
       sort: 'asc',
@@ -26,25 +29,12 @@ $(() => {
     axios
       .post(url, body)
       .then((res) => {
+        _loading.hide();
         if (res.data) {
-          var data = res.data;
-          if (data.data?.length) {
-            var items = data.data;
-            var strHtml = '';
-            items.forEach((item) => {
-              var color = item.user_status === 0 ? 'accent' : 'primary';
-              var status = item.user_status === 0 ? 'Activo' : 'Inactivo';
-              strHtml += `
-                <tr class="hover cursor-pointer">
-                  <td>${item.user_login}</td>
-                  <td>${item.display_name}</td>
-                  <td>${item.user_email}</td>
-                  <td>${item.user_registered}</td>
-                  <td><span class="badge badge-${color}">${status}</span></td>
-                </tr>
-              `
-            });
-            table.append(strHtml);
+          if (res.data.data?.length) {
+            var { data, ...pagination } = res.data;
+            fillTable(_table, data)
+            fillPaginate(_paginate, pagination)
           } else {
             console.log('---array vacio--');
           }
@@ -53,8 +43,49 @@ $(() => {
         }
       })
       .catch((err) => {
+        loading.hide();
         console.log('--er--');
         console.log(err);
       })
   }
-});
+
+  function fillTable(table, data) {
+    var rows = '';
+    data.forEach((item) => {
+      var color = item.user_status === 0 ? 'accent' : 'primary';
+      var status = item.user_status === 0 ? 'Activo' : 'Inactivo';
+      rows += `
+        <tr class="hover cursor-pointer">
+          <td>${item.user_login}</td>
+          <td>${item.display_name}</td>
+          <td>${item.user_email}</td>
+          <td>${item.user_registered}</td>
+          <td><span class="badge badge-${color}">${status}</span></td>
+        </tr>
+      `
+    });
+    table.append(rows);
+  }
+
+  function fillPaginate(paginate, pagination) {
+    var pages = Math.ceil(pagination.total/pagination.perPage);
+    var btns = '';
+    for (var i=0; i < pages; i++) {
+      var active = i+1 === pagination.page ? 'btn-active' : ''
+      btns += `<button id="page-${i+1}" class="btn ${active}" onclick="listUsers(5)">${i+1}</button>`
+    }
+    paginate.html(btns);
+  }
+
+  /*$('#tablePagination button[id^="page-"]').each(() => {
+    console.log('----asdas--');
+    console.log(this.id);
+  });*/
+  $('#page-1').on('click', () => {
+    console.log('--asdads--');
+  });
+// });
+
+/*$('#page').on('click', () => {
+  console.log('--asdasdas-')
+});*/
