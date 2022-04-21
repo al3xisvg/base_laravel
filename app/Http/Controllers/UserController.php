@@ -50,7 +50,14 @@ class UserController extends Controller {
 
   public function dtTable(Request $request) {
     $data = Wp_user::all();
-    return datatables()->of($data)->make(true);
+    return datatables()->of($data)
+      ->addIndexColumn()
+      ->addColumn('action', function($row){
+        $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+        return $btn;
+      })
+      ->rawColumns(['action'])
+      ->make(true);
   }
 
   public function obtain($id) {

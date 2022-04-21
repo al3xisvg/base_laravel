@@ -17,6 +17,7 @@ function listUsers() {
       { data: 'user_email' },
       { data: 'user_registered' },
       { data: 'user_status' },
+      { data: 'action' },
     ],
   });
 }

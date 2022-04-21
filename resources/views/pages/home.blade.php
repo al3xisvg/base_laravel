@@ -15,6 +15,7 @@
           <th title="Email">Email</th>
           <th title="Fecha de Creación">Fecha de Creación</th>
           <th title="Estado">Estado</th>
+          <th title="Acción">Acción</th>
         </tr>
       </thead>
       <tbody>

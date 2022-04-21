@@ -48603,26 +48603,15 @@ var __webpack_exports__ = {};
 /*!******************************!*\
   !*** ./resources/js/home.js ***!
   \******************************/
-var _excluded = ["data"];
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 var _table = $('#table');
 
-var _paginate = $('#tablePagination');
+var _loading = $('#loading');
 
-var _loading = $('#loading'); // listUsers(1);
+listUsers();
 
-
-list();
-
-function list() {
+function listUsers() {
   _table.DataTable({
     serverSide: true,
     processing: true,
@@ -48639,68 +48628,10 @@ function list() {
       data: 'user_registered'
     }, {
       data: 'user_status'
+    }, {
+      data: 'action'
     }]
   });
-}
-
-function listUsers(page) {
-  _loading.show();
-
-  var url = '/api/v1/user/list';
-  var body = {
-    page: page,
-    perPage: 10,
-    orderBy: 'display_name',
-    sort: 'asc',
-    fields: ['ID', 'user_login', 'display_name', 'user_email', 'user_registered', 'user_status']
-  };
-  axios.post(url, body).then(function (res) {
-    _loading.hide();
-
-    if (res.data) {
-      var _res$data$data;
-
-      if ((_res$data$data = res.data.data) !== null && _res$data$data !== void 0 && _res$data$data.length) {
-        var _res$data = res.data,
-            data = _res$data.data,
-            pagination = _objectWithoutProperties(_res$data, _excluded);
-
-        fillTable(_table, data);
-        fillPaginate(_paginate, pagination);
-      } else {
-        console.log('---array vacio--');
-      }
-    } else {
-      console.log('---no hay data---');
-    }
-  })["catch"](function (err) {
-    _loading.hide();
-
-    console.log('--er--');
-    console.log(err);
-  });
-}
-
-function fillTable(table, data) {
-  var rows = '';
-  data.forEach(function (item) {
-    var color = item.user_status === 0 ? 'accent' : 'primary';
-    var status = item.user_status === 0 ? 'Activo' : 'Inactivo';
-    rows += "\n      <tr class=\"hover cursor-pointer\">\n        <td>".concat(item.user_login, "</td>\n        <td>").concat(item.display_name, "</td>\n        <td>").concat(item.user_email, "</td>\n        <td>").concat(item.user_registered, "</td>\n        <td><span class=\"badge badge-").concat(color, "\">").concat(status, "</span></td>\n      </tr>\n    ");
-  });
-  table.append(rows);
-}
-
-function fillPaginate(paginate, pagination) {
-  var pages = Math.ceil(pagination.total / pagination.perPage);
-  var btns = '';
-
-  for (var i = 0; i < pages; i++) {
-    var active = i + 1 === pagination.page ? 'btn-active' : '';
-    btns += "<button id=\"page".concat(i + 1, "\" class=\"btn ").concat(active, "\">").concat(i + 1, "</button>");
-  }
-
-  paginate.html(btns);
 }
 })();
 
