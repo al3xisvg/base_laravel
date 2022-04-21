@@ -1,7 +1,7 @@
 require('./bootstrap');
 
 var _table = $('#table');
-var _loading = $('#loading');
+// var _loading = $('#loading');
 
 listUsers();
 

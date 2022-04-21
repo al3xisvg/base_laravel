@@ -48605,9 +48605,8 @@ var __webpack_exports__ = {};
   \******************************/
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var _table = $('#table');
+var _table = $('#table'); // var _loading = $('#loading');
 
-var _loading = $('#loading');
 
 listUsers();
 
