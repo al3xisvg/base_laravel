@@ -37,6 +37,22 @@ body {
   /* font-family: Objective !important;*/
 }
 
+/*.content {
+  position: relative;
+}
+
+#sape {
+  position: absolute;
+}
+
+#loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  z-index: 9;
+}*/
+
 /* BEGIN - DATATABLE */
 .dataTable tbody tr:hover td {
   cursor: pointer;

@@ -3609,9 +3609,6 @@ body[dir="rtl"] .checkbox:checked,
 .mt-3 {
   margin-top: 0.75rem;
 }
-.mt-8 {
-  margin-top: 2rem;
-}
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -3702,9 +3699,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .gap-2 {
   gap: 0.5rem;
-}
-.overflow-x-auto {
-  overflow-x: auto;
 }
 .rounded-full {
   border-radius: 9999px;
@@ -3833,6 +3827,22 @@ html, body {
 body {
   background-color: #ededed;
   /* font-family: Objective !important;*/
+}
+
+.content {
+  position: relative;
+}
+
+#sape {
+  position: absolute;
+}
+
+#loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  z-index: 9;
 }
 
 /* BEGIN - DATATABLE */

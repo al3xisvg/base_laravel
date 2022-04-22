@@ -11,7 +11,14 @@ function listUsers() {
   _table.DataTable({
     serverSide: true,
     processing: false,
-    ajax: "/api/v1/user/list-datatable",
+    ajax: {
+      type: 'GET',
+      url: "/api/v1/user/list-datatable",
+      dataSrc: function (json) {
+        _loading.hide();
+        return json.data;
+      },
+    },
     columns: [
       { data: 'ID' },
       { data: 'user_login' },
@@ -61,6 +68,10 @@ function listUsers() {
     scrollCollapse: true,
     initComplete: function() {
       _loading.hide();
-    }
+    },
   });
 }
+
+_table.on('page.dt', function () {
+  _loading.show();
+});

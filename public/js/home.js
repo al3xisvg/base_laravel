@@ -70214,7 +70214,18 @@ function listUsers() {
   _table.DataTable({
     serverSide: true,
     processing: false,
-    ajax: "/api/v1/user/list-datatable",
+    ajax: {
+      type: 'GET',
+      url: "/api/v1/user/list-datatable",
+      dataSrc: function dataSrc(json) {
+        _loading.hide();
+
+        setTimeout(function () {
+          return _table.columns.adjust();
+        }, 500);
+        return json.data;
+      }
+    },
     columns: [{
       data: 'ID'
     }, {
@@ -70272,6 +70283,10 @@ function listUsers() {
     }
   });
 }
+
+_table.on('page.dt', function () {
+  _loading.show();
+});
 })();
 
 /******/ })()
