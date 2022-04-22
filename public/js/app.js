@@ -2168,22 +2168,20 @@ __webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4
 
 __webpack_require__(/*! datatables.net-buttons-bs4 */ "./node_modules/datatables.net-buttons-bs4/js/buttons.bootstrap4.js");
 
-$(function () {
-  var eyeVisible = $('#eye-visible');
-  var eyeHidden = $('#eye-hidden');
-  var inpPassword = $('#password');
+var eyeVisible = $('#eye-visible');
+var eyeHidden = $('#eye-hidden');
+var inpPassword = $('#password');
+eyeVisible.show();
+eyeHidden.hide();
+eyeVisible.on('click', function () {
+  eyeVisible.hide();
+  eyeHidden.show();
+  inpPassword.attr('type', 'text');
+});
+eyeHidden.on('click', function () {
   eyeVisible.show();
   eyeHidden.hide();
-  eyeVisible.on('click', function () {
-    eyeVisible.hide();
-    eyeHidden.show();
-    inpPassword.attr('type', 'text');
-  });
-  eyeHidden.on('click', function () {
-    eyeVisible.show();
-    eyeHidden.hide();
-    inpPassword.attr('type', 'password');
-  });
+  inpPassword.attr('type', 'password');
 });
 
 /***/ }),

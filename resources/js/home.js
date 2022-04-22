@@ -2,14 +2,15 @@ require('./bootstrap');
 var moment = require('moment')
 
 var _table = $('#table');
-// var _loading = $('#loading');
+var _loading = $('#loading');
 
 listUsers();
 
 function listUsers() {
+  _loading.show();
   _table.DataTable({
     serverSide: true,
-    processing: true,
+    processing: false,
     ajax: "/api/v1/user/list-datatable",
     columns: [
       { data: 'ID' },
@@ -37,5 +38,11 @@ function listUsers() {
       },
       { data: 'action' },
     ],
+    /*createdRow: function(row, data, dataIndex) {
+      $(row).addClass('red');
+    }*/
+    initComplete: function() {
+      _loading.hide();
+    }
   });
 }

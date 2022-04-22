@@ -36,3 +36,25 @@ body {
   background-color: #ededed;
   /* font-family: Objective !important;*/
 }
+
+/* BEGIN - DATATABLE */
+.dataTable tbody tr:hover td {
+  cursor: pointer;
+  background-color: #e5e7eb;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.active {
+  background: linear-gradient(to bottom, #585858 0%, #111 100%);
+  color: white !important;
+  border: 1px solid #111;
+}
+
+/*.dataTables_wrapper .dataTables_processing {
+  position: absolute;
+  bottom: 0% !important;
+  background: #FFFFCC;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-weight: bold;
+}*/
+/* END - DATATABLE */

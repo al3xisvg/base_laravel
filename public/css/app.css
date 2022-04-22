@@ -3771,36 +3771,51 @@ body {
   /* font-family: Objective !important;*/
 }
 
+/* BEGIN - DATATABLE */
+.dataTable tbody tr:hover td {
+  cursor: pointer;
+  background-color: #e5e7eb;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.active {
+  background: linear-gradient(to bottom, #585858 0%, #111 100%);
+  color: white !important;
+  border: 1px solid #111;
+}
+
+/*.dataTables_wrapper .dataTables_processing {
+  position: absolute;
+  bottom: 0% !important;
+  background: #FFFFCC;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-weight: bold;
+}*/
+/* END - DATATABLE */
 .focus\:border-gray-600:focus {
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
-
 .focus\:bg-white:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-
 .focus\:placeholder-gray-500:focus::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(107 114 128 / var(--tw-placeholder-opacity));
 }
-
 .focus\:placeholder-gray-500:focus:-ms-input-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(107 114 128 / var(--tw-placeholder-opacity));
 }
-
 .focus\:placeholder-gray-500:focus::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(107 114 128 / var(--tw-placeholder-opacity));
 }
-
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-
 @media (prefers-color-scheme: dark) {
 
   .dark\:text-gray-600 {
@@ -3808,7 +3823,6 @@ body {
     color: rgb(75 85 99 / var(--tw-text-opacity));
   }
 }
-
 @media (min-width: 768px) {
 
   .md\:flex {
@@ -3823,4 +3837,3 @@ body {
     width: 16rem;
   }
 }
-
