@@ -21,7 +21,8 @@
   <body class="flex flex-col h-screen justify-center">
     
     <div class="container mx-auto">
-      <form class="card w-96 bg-base-100 shadow-xl mx-auto p-10 gap-4" onSubmit="return false;">
+      <form class="card w-96 bg-base-100 shadow-xl mx-auto p-10 gap-4" action="/login" method="POST"> <!--onSubmit="return false;">-->
+        @csrf
         <img class="mx-auto" src="{{ asset('images/logos/logo.png') }}" height="100" width="150" />
 
         <div class="form-control w-full max-w-xs"> 
@@ -74,7 +75,7 @@
         </div>
 
         <button type="submit" class="btn">
-          <a href="{{ route('home') }}">Iniciar Sesión</a>
+          Iniciar Sesión
         </button>
 
         <button class="btn btn-link btn-sm no-underline">
