@@ -48626,7 +48626,15 @@ function listUsers() {
     }, {
       data: 'user_registered'
     }, {
-      data: 'user_status'
+      data: 'user_status',
+      render: function render(data, type) {
+        if (type === 'display') {
+          var status = data === 0 ? 'Activo' : 'Inactivo';
+          return "<div class=\"badge badge-primary\">".concat(status, "</div>");
+        }
+
+        return data;
+      }
     }, {
       data: 'action'
     }]

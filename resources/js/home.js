@@ -16,7 +16,16 @@ function listUsers() {
       { data: 'display_name' },
       { data: 'user_email' },
       { data: 'user_registered' },
-      { data: 'user_status' },
+      {
+        data: 'user_status',
+        render: function (data, type) {
+          if (type === 'display') {
+            var status = data === 0 ? 'Activo' : 'Inactivo';
+            return `<div class="badge badge-primary">${status}</div>`;
+          }
+          return data;
+        }
+      },
       { data: 'action' },
     ],
   });
