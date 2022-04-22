@@ -3867,6 +3867,7 @@ body {
   /* font-family: Objective !important;*/
 }
 
+/* BEGIN - LOADING */
 #modal {
   position: fixed;
   width: 82%;
@@ -3878,6 +3879,7 @@ body {
     width: 75%;
   }
 }
+/* END - LOADING */
 
 /* BEGIN - DATATABLE */
 .dataTable tbody tr:hover td {

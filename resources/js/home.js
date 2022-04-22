@@ -64,7 +64,7 @@ function listUsers() {
       infoFiltered: '(Filtrado de _MAX_ registros)',
     },
     // dom: 'Bfrtip',
-    scrollY: "52vh",
+    scrollY: "53vh",
     scrollCollapse: true,
     initComplete: function() {
       _loading.hide();
@@ -73,5 +73,9 @@ function listUsers() {
 }
 
 _table.on('page.dt', function () {
+  _loading.show();
+});
+
+_table.on('length.dt', function(e, settings, len) {
   _loading.show();
 });

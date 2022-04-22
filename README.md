@@ -39,3 +39,7 @@ In resources/js/bootstrap.js, at bottom file was inserted following text:
 
   }
 ```
+
+https://onlinecode.org/datatables-server-side-processing-using-laravel/
+
+https://www.itsolutionstuff.com/post/laravel-datatables-server-side-processing-exampleexample.html
