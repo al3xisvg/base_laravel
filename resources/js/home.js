@@ -41,6 +41,21 @@ function listUsers() {
     /*createdRow: function(row, data, dataIndex) {
       $(row).addClass('red');
     }*/
+    language: {
+      lengthMenu: 'Mostrar _MENU_ reg/pág',
+      zeroRecords: 'No hay datos disponibles',
+      info: 'Registro _START_ de _END_ de _TOTAL_',
+      infoEmpty: 'No hay datos disponibles',
+      paginate: {
+        previous: 'Anterior',
+        next: 'Siguiente',
+      },
+      search: 'Buscar: ',
+      select: {
+        rows: '- %d registros seleccionados',
+      },
+      infoFiltered: '(Filtrado de _MAX_ registros)',
+    },
     initComplete: function() {
       _loading.hide();
     }
