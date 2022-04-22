@@ -1,4 +1,5 @@
 require('./bootstrap');
+var moment = require('moment')
 
 var _table = $('#table');
 // var _loading = $('#loading');
@@ -15,7 +16,15 @@ function listUsers() {
       { data: 'user_login' },
       { data: 'display_name' },
       { data: 'user_email' },
-      { data: 'user_registered' },
+      {
+        data: 'user_registered',
+        render: function (data, type) {
+          if (type === 'display') {
+            return moment(data).format('YYYY/MM/DD');
+          }
+          return data;
+        }
+      },
       {
         data: 'user_status',
         render: function (data, type) {
