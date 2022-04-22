@@ -52,6 +52,10 @@ body {
 /* END - LOADING */
 
 /* BEGIN - DATATABLE */
+.dataTables_scroll {
+  height: 58vh;
+}
+
 .dataTable tbody tr:hover td {
   cursor: pointer;
   background-color: #e5e7eb;
