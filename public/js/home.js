@@ -70220,9 +70220,6 @@ function listUsers() {
       dataSrc: function dataSrc(json) {
         _loading.hide();
 
-        setTimeout(function () {
-          return _table.columns.adjust();
-        }, 500);
         return json.data;
       }
     },

@@ -37,21 +37,19 @@ body {
   /* font-family: Objective !important;*/
 }
 
-/*.content {
-  position: relative;
+/* BEGIN - LOADING */
+#modal {
+  position: fixed;
+  width: 82%;
+  top: calc(42vh);
 }
 
-#sape {
-  position: absolute;
+@media (min-width: 1200px) {
+  #modal {
+    width: 75%;
+  }
 }
-
-#loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 500px;
-  z-index: 9;
-}*/
+/* END - LOADING */
 
 /* BEGIN - DATATABLE */
 .dataTable tbody tr:hover td {
