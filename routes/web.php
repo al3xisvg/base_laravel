@@ -1,6 +1,5 @@
 <?php
 
-// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
@@ -9,16 +8,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
   return view('welcome');
 })->middleware('guest');
-
-/*Route::post('/login', function () {
-  $credentials = request()->only('email', 'password');
-
-  if (Auth::attempt($credentials)) {
-    return 'Logged!';
-  }
-
-  return 'Login failed';
-});*/
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
