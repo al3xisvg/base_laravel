@@ -7,6 +7,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 
 use Hash;
+use MikeMcLin\WpPassword\Facades\WpPassword;
 
 class AuthController extends Controller {
   public function login(Request $request) {
@@ -28,7 +29,7 @@ class AuthController extends Controller {
     $passwordDB = $admin->password;
 
     // Validate if password is correct:
-    $isCorrect = Hash::check($password, $passwordDB);
+    $isCorrect = WpPassword::check($password, $passwordDB);
     if (!$isCorrect) {
       return back()->with('fail', '¡Contraseña incorrecta!');
     }
