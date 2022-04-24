@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
+use Closure;
+
 class Authenticate extends Middleware
 {
     /**
@@ -17,5 +19,12 @@ class Authenticate extends Middleware
         if (! $request->expectsJson()) {
             return route('login');
         }
+    }
+
+    public function handle($request, Closure $next, ...$guards) {
+      if (!Session()->has('loginId')) {
+        return redirect('/')->with('fail', __('validation.required_login'));
+      }
+      return $next($request);
     }
 }

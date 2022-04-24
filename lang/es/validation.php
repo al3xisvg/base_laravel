@@ -107,6 +107,7 @@ return [
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute format is invalid.',
     'required' => 'El campo :attribute es requerido.',
+    'required_login' => 'Por favor, primero inicie sesión',
     'required_password' => 'La contraseña es requerida.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
