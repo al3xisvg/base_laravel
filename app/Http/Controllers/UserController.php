@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Wp_user;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -21,19 +21,19 @@ class UserController extends Controller {
         : []
       : [];
 
-    $total = Wp_user::count();
+    $total = User::count();
     $users = [];
     if (isset($orderBy)) {
       if (count($fields) > 0) {
-        $users = Wp_user::orderBy($orderBy, $sort)->skip($skip)->limit($limit)->get($fields);
+        $users = User::orderBy($orderBy, $sort)->skip($skip)->limit($limit)->get($fields);
       } else {
-        $users = Wp_user::orderBy($orderBy, $sort)->skip($skip)->limit($limit)->get();
+        $users = User::orderBy($orderBy, $sort)->skip($skip)->limit($limit)->get();
       }
     } else {
       if (count($fields) > 0) {
-        $users = Wp_user::all()->skip($skip)->limit($limit)->get($fields);
+        $users = User::all()->skip($skip)->limit($limit)->get($fields);
       } else {
-        $users = Wp_user::all()->skip($skip)->limit($limit)->get();
+        $users = User::all()->skip($skip)->limit($limit)->get();
       }
     }
 
@@ -49,7 +49,7 @@ class UserController extends Controller {
   }
 
   public function dtTable(Request $request) {
-    $data = Wp_user::all();
+    $data = User::all();
     return datatables()->of($data)
       ->addIndexColumn()
       ->addColumn('action', function($row){
@@ -61,7 +61,7 @@ class UserController extends Controller {
   }
 
   public function obtain($id) {
-    $user = Wp_user::find($id);
+    $user = User::find($id);
     return $user;
   }
 }
