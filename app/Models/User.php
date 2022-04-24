@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'wp_users';
+
     /**
      * The attributes that are mass assignable.
      *

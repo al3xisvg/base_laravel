@@ -29,6 +29,7 @@
           <span class="px-1 text-sm text-gray-600">Email:</span>
           <input
             id="email"
+            name="email"
             type="text"
             placeholder="email@domain.com"
             class="input input-bordered w-full max-w-xs shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
@@ -40,6 +41,7 @@
           <div class="relative">
             <input
               id="password"
+              name="password"
               type="password"
               placeholder="*******"
               class="input input-bordered w-full max-w-xs shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
