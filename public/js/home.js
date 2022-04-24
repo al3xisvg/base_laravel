@@ -70200,6 +70200,10 @@ var __webpack_exports__ = {};
   \******************************/
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
+
+__webpack_require__(/*! datatables.net-buttons-bs4 */ "./node_modules/datatables.net-buttons-bs4/js/buttons.bootstrap4.js");
+
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 var _table = $('#table');

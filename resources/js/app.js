@@ -1,8 +1,5 @@
 require('./bootstrap');
 
-require('datatables.net-bs4');
-require('datatables.net-buttons-bs4');
-
 var eyeVisible = $('#eye-visible');
 var eyeHidden = $('#eye-hidden');
 var inpPassword = $('#password');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+
 use Illuminate\Http\Request;
 
 use Session;
@@ -12,6 +14,9 @@ class OtherController extends Controller {
     if (!$isLogged) {
       return redirect('/');
     }
-    return view('pages.other');
+
+    $admins = Admin::all();
+
+    return view('pages.other', compact('admins'));
   }
 }
