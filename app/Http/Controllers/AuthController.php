@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 use WpPassword;
 
+use Session;
+
 class AuthController extends Controller {
   public function login(Request $request) {
     // Fields Validations:
@@ -42,5 +44,12 @@ class AuthController extends Controller {
 
     // Response:
     return redirect('home');
+  }
+
+  public function logout() {
+    if (Session::has('loginId')) {
+      Session::pull('loginId');
+      return redirect('/');
+    }
   }
 }

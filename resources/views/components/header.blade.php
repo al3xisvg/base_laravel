@@ -26,7 +26,7 @@
               <li><a>Submenu 2</a></li>
             </ul>
           </li>
-          <li><a>Item 3</a></li>
+          <li><a href="logout">Logout</a></li>
         </ul>
       </div>
 
