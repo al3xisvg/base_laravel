@@ -6,6 +6,8 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 
+use DataTables;
+
 class UserController extends Controller {
   public function list(Request $request) {
     $page = isset($request->page) ? $request->page : 1;

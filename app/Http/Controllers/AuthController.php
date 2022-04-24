@@ -6,8 +6,7 @@ use App\Models\Admin;
 
 use Illuminate\Http\Request;
 
-use Hash;
-use MikeMcLin\WpPassword\Facades\WpPassword;
+use WpPassword;
 
 class AuthController extends Controller {
   public function login(Request $request) {
