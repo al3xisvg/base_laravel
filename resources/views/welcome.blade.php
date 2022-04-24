@@ -21,19 +21,39 @@
   <body class="flex flex-col h-screen justify-center">
     
     <div class="container mx-auto">
-      <form class="card w-96 bg-base-100 shadow-xl mx-auto p-10 gap-4" action="/login" method="POST"> <!--onSubmit="return false;">-->
+      <form class="card w-96 bg-base-100 shadow-xl mx-auto p-10 gap-4" action="{{ route('login') }}" method="POST"> <!--onSubmit="return false;"-->
         @csrf
         <img class="mx-auto" src="{{ asset('images/logos/logo.png') }}" height="100" width="150" />
+
+        @if(Session::has('success'))
+          <div class="alert alert-success shadow-lg">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span>{{ Session::get('success') }}</span>
+            </div>
+          </div>
+        @endif
+
+        @if(Session::has('fail'))
+        <div class="alert alert-error shadow-lg">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>{{ Session::get('fail') }}</span>
+          </div>
+        </div>
+        @endif
 
         <div class="form-control w-full max-w-xs"> 
           <span class="px-1 text-sm text-gray-600">Email:</span>
           <input
             id="email"
             name="email"
+            value="{{ old('email') }}"
             type="text"
             placeholder="email@domain.com"
             class="input input-bordered w-full max-w-xs shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
           >
+          <span class="text-red-500">@error('email') {{ $message }} @enderror</span>
         </div>
 
         <div class="form-control w-full max-w-xs">
@@ -42,6 +62,7 @@
             <input
               id="password"
               name="password"
+              value="{{ old('password') }}"
               type="password"
               placeholder="*******"
               class="input input-bordered w-full max-w-xs shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
@@ -67,6 +88,7 @@
               </svg>
             </div>
           </div>
+          <span class="text-red-500">@error('password') {{ $message }} @enderror</span>
         </div>
 
         <div class="form-control">
