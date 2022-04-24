@@ -7,8 +7,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+  return view('welcome');
+})->middleware('guest');
 
 /*Route::post('/login', function () {
   $credentials = request()->only('email', 'password');

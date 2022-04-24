@@ -7,6 +7,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Session;
+
 class RedirectIfAuthenticated
 {
     /**
@@ -17,7 +19,7 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handleOriginal(Request $request, Closure $next, ...$guards)
     {
         $guards = empty($guards) ? [null] : $guards;
 
@@ -28,5 +30,13 @@ class RedirectIfAuthenticated
         }
 
         return $next($request);
+    }
+
+    public function handle(Request $request, Closure $next, ...$guards) {
+      $url = $request->url();
+      if (Session::has('loginId') && (url('/') === $url)) {
+        return back();
+      }
+      return $next($request);
     }
 }
