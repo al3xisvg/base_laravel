@@ -6,6 +6,8 @@ use App\Models\Admin;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Arr;
+
 use Session;
 
 class OtherController extends Controller {
@@ -16,6 +18,11 @@ class OtherController extends Controller {
     }
 
     $admins = Admin::all();
+
+    $admin = new Admin;
+    $admin->id = 0;
+
+    $admins[] = $admin;
 
     return view('pages.other', compact('admins'));
   }

@@ -3869,6 +3869,9 @@ body[dir="rtl"] .checkbox:checked,
 .gap-2 {
   gap: 0.5rem;
 }
+.gap-5 {
+  gap: 1.25rem;
+}
 .overflow-x-auto {
   overflow-x: auto;
 }
